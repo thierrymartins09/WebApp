@@ -1,0 +1,282 @@
+/* =========================
+   VARIÁVEIS GERAIS
+========================= */
+:root {
+  --blue-dark: #0d1b2a;
+  --blue-mid: #1b263b;
+  --blue-accent: #415a77;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --green: #00c34a;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  background: var(--gray-light);
+}
+
+/* =========================
+    TOPBAR
+========================= */
+.topbar {
+  background: var(--blue-dark);
+  color: var(--white);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text {
+  background: var(--blue-accent);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: var(--white);
+  margin: 0 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--blue-accent);
+}
+
+/* ===== User Menu ===== */
+.user-menu {
+  position: relative;
+}
+
+.user-menu button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  background: #415a77;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  right: 0;
+  z-index: 1;
+}
+.dropdown-content a {
+  color: #0d1b2a;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* =========================
+    GRID DE RESERVAS
+========================= */
+main {
+  width: 90%;
+  margin: 40px auto;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 25px;
+}
+
+/* =========================
+    CARD DO EVENTO
+========================= */
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px #0002;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s;
+}
+
+.card.animado {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 15px;
+}
+
+.info h2 {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.status {
+  margin-top: 5px;
+  font-weight: bold;
+  color: var(--green);
+}
+
+/* Botão detalhes */
+.btnDetalhes {
+  margin-top: 10px;
+  background: var(--blue-accent);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnDetalhes:hover {
+  background: var(--blue-mid);
+}
+
+footer {
+  background: var(--blue-dark);
+  color: white;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-col h4 {
+  margin-bottom: 10px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin: 6px 0;
+}
+
+.footer-col.social .icons i {
+  font-size: 22px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.footer-col.social .icons i:hover {
+  transform: scale(1.2);
+  color: var(--blue-accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* =========================
+    MODAL DE DETALHES
+========================= */
+#eventoModal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+#eventoModal.show {
+  display: flex;
+}
+
+.modal-inner {
+  background: white;
+  padding: 25px;
+  width: 380px;
+  border-radius: 15px;
+  text-align: center;
+  animation: fade 0.4s ease;
+}
+
+.modal-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#closeModal {
+  margin-top: 15px;
+  background: var(--blue-accent);
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Animação */
+@keyframes fade {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
